@@ -12,8 +12,7 @@ public class MyFirstChatApp {
 
         Scanner input = new Scanner(System.in);
 
-        // Registration
-        System.out.println("=== Registration ===");
+        System.out.println("=== Chat App Registration ===");
 
         System.out.print("Enter your first name: ");
         String firstName = input.nextLine();
@@ -30,7 +29,6 @@ public class MyFirstChatApp {
         System.out.print("Enter cellphone number: ");
         String cellPhoneNumber = input.nextLine();
 
-        // Create Login object
         Login user = new Login(
                 username,
                 password,
@@ -39,12 +37,11 @@ public class MyFirstChatApp {
                 lastName
         );
 
-        // Check registration
+        System.out.println();
         System.out.println(user.registerUser());
 
-        // Login
         System.out.println();
-        System.out.println("Login");
+        System.out.println("=== Login ===");
 
         System.out.print("Enter username: ");
         String loginUsername = input.nextLine();
@@ -52,13 +49,16 @@ public class MyFirstChatApp {
         System.out.print("Enter password: ");
         String loginPassword = input.nextLine();
 
-        System.out.println(
-                user.returnLoginStatus(loginUsername, loginPassword)
-        );
+        System.out.println();
+
+        if (user.loginUser(loginUsername, loginPassword)) {
+            System.out.println(user.returnLoginStatus(loginUsername, loginPassword));
+        } else {
+            System.out.println("Username or password incorrect, please try again.");
+        }
+
+        input.close();
     }
 }
-
-
-         
     
 
