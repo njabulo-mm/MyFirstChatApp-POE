@@ -30,5 +30,13 @@
   "message": "Hello mom",
   "messageCount": 1,
   "messageStatus": "Stored"
+},
+{
+  "messageID": "1836431235",
+  "messageHash": "18:1:HELLOMOM",
+  "recipientCell": "0823960540",
+  "message": "Hello mom",
+  "messageCount": 1,
+  "messageStatus": "Stored"
 }
 ]
