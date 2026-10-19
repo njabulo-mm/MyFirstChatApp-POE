@@ -45,23 +45,27 @@ public class Login {
     // Checks cellphone number
     public boolean checkCellPhoneNumber() {
 
-        String regex = "^\\+27[0-9]{10}";
+        if (cellPhoneNumber == null) {
+        return false;
+    }
 
-        return cellPhoneNumber.matches(regex);
+    String regex = "^\\+27[0-9]{9}$";
+
+    return cellPhoneNumber.matches(regex); 
     }
 
     // Registers the user
     public String registerUser() {
 
-        if (checkUserName()) {
+        if (!checkUserName()) {
 
             return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
 
-        } else if (checkPasswordComplexity()) {
+        } else if (!checkPasswordComplexity()) {
 
             return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
 
-        } else if (checkCellPhoneNumber()) {
+        } else if (!checkCellPhoneNumber()) {
 
             return "Cell number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
 

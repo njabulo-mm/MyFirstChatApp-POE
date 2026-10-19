@@ -1,0 +1,34 @@
+[
+{
+  "messageID": "1482031979",
+  "messageHash": "14:1:IMOM",
+  "recipientCell": "+27823960540",
+  "message": "I love you mom",
+  "messageCount": 1,
+  "messageStatus": "Stored"
+},
+{
+  "messageID": "1387387264",
+  "messageHash": "13:1:HELLOWORLD",
+  "recipientCell": "0823960540",
+  "message": "hello world",
+  "messageCount": 1,
+  "messageStatus": "Stored"
+},
+{
+  "messageID": "1435246866",
+  "messageHash": "14:1:MAKINGELSE",
+  "recipientCell": "0823960540",
+  "message": "Making you proud is what I want mom nothing else",
+  "messageCount": 1,
+  "messageStatus": "Stored"
+},
+{
+  "messageID": "1485474330",
+  "messageHash": "14:1:HELLOMOM",
+  "recipientCell": "0823960540",
+  "message": "Hello mom",
+  "messageCount": 1,
+  "messageStatus": "Stored"
+}
+]

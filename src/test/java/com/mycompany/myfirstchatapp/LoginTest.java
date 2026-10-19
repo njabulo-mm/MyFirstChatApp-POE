@@ -2,123 +2,69 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
+
 package com.mycompany.myfirstchatapp;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class LoginTest {
 
     @Test
-    public void testCheckUserNameCorrect() {
-
-        Login login = new Login(
-                "Njl_1",
-                "Ch8&se@ke99!",
-                "+27838968976",
-                "Mike",
-                "Pertu"
+    public void testCheckUserName() {
+        Login user = new Login(
+                "nj_1", "Pertunia@3", "+27797030250",
+                "Nia", "Test"
         );
-
-        assertEquals(true, login.checkUserName());
-    }
-    
-     @Test
-    public void testCheckUserNameIncorrect() {
-
-        Login login = new Login(
-                "Masungulo123",
-                "Nj8&se@ke99!",
-                "+27838968976",
-                "Mike",
-                "Pertu"
-        );
-
-        assertEquals(false, login.checkUserName());
+        assertTrue(user.checkUserName());
     }
 
     @Test
-    public void testPasswordCorrect() {
-
-        Login login = new Login(
-                "Njl_1",
-                "Ch8&se@ke99!",
-                "+27838968976",
-                "Mike",
-                "Pertu"
+    public void testCheckPasswordComplexity() {
+        Login user = new Login(
+                "nj_1", "Pertunia@3", "+27797030250",
+                "Nia", "Test"
         );
-
-        assertEquals(true, login.checkPasswordComplexity());
+        assertTrue(user.checkPasswordComplexity());
     }
 
     @Test
-    public void testPasswordIncorrect() {
-
-        Login login = new Login(
-                "Njl_1",
-                "password",
-                "+27838968976",
-                "Mike",
-                "Pertu"
+    public void testCheckCellPhoneNumber() {
+        Login user = new Login(
+                "nj_1", "Pertunia@3", "+27797030250",
+                "Nia", "Test"
         );
-
-        assertEquals(false, login.checkPasswordComplexity());
+        assertTrue(user.checkCellPhoneNumber());
     }
 
     @Test
-    public void testCellPhoneCorrect() {
-
-        Login login = new Login(
-                "Njl_1",
-                "Nj8&se@ke99!",
-                "+278389689761",
-                "Mike",
-                "Pertu"
+    public void testRegisterUser() {
+        Login user = new Login(
+                "nj_1", "Pertunia@3", "+27797030250",
+                "Nia", "Test"
         );
-
-        assertEquals(true, login.checkCellPhoneNumber());
+        assertEquals("Registration successful.", user.registerUser());
     }
 
     @Test
-    public void testCellPhoneIncorrect() {
-
-        Login login = new Login(
-                "Njl_1",
-                "Nj8&se@ke99!",
-                "08966553",
-                "Mike",
-                "Pertu"
+    public void testLoginUser() {
+        Login user = new Login(
+                "nj_1", "Pertunia@3", "+27797030250",
+                "Nia", "Test"
         );
-
-        assertEquals(false, login.checkCellPhoneNumber());
+        assertTrue(user.loginUser("nj_1", "Pertunia@3"));
+        assertFalse(user.loginUser("wrong", "wrong"));
     }
 
     @Test
-public void testLoginSuccessful() {
-
-    Login login = new Login(
-            "Nj1_1",
-            "Nj8&se@ke99!",
-            "+27838968976",
-            "mike",
-            "pertu"
-    );
-
-    assertEquals(true,
-            login.loginUser("Nj1_1", "Nj8&se@ke99!"));
-}
-    @Test
-    public void testLoginFailed() {
-
-        Login login = new Login(
-                "Njl_1",
-                "Nj8&se@ke99!",
-                "+27838968976",
-                "Mike",
-                "Pertu"
+    public void testReturnLoginStatus() {
+        Login user = new Login(
+                "nj_1", "Pertunia@3", "+27797030250",
+                "Nia", "Test"
         );
-
-        assertEquals(false,
-                login.loginUser("wrong", "password"));
+        assertEquals(
+                "Welcome Nia, Test it is great to see you again.",
+                user.returnLoginStatus("nj_1", "Pertunia@3")
+        );
     }
 }
